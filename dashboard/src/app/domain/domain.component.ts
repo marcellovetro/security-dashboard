@@ -32,7 +32,7 @@ export class DomainComponent implements OnInit {
             height: 500,
             width: 1200
         };
-        //this.getDomains();
+        this.getDomains();
     }
 
     getDomains() {

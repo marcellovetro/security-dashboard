@@ -25,12 +25,6 @@ export class DomainService {
             .catch(this.handleError);
     }
 
-    getCount(search: any): Observable<number> {
-        return this.http.get('http://localhost/security-dashboard/service/domain.php?count=1')
-            .map(res => res.json())
-            .catch(this.handleError);
-    }
-
     private handleError(error: Response | any) {
         // In a real world app, you might use a remote logging infrastructure
         let errMsg: string;

@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {PlotlyComponent} from './plotly/plotly.component';
 import {DomainComponent} from './domain/domain.component';
 import {RouterModule} from "@angular/router";
 import {DomainService} from "./providers/domain.service";
@@ -11,7 +10,6 @@ import {HttpModule} from "@angular/http";
 @NgModule({
   declarations: [
     AppComponent,
-      PlotlyComponent,
       DomainComponent
   ],
   imports: [

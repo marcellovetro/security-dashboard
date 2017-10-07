@@ -9,10 +9,11 @@
 $term = strtolower($_REQUEST['term']);
 header("Access-Control-Allow-Origin: *");
 $result = array();
+$headers = array();
 if (($handle = fopen("../resource/pshtt.csv", "r")) !== FALSE) {
     $column_headers = fgetcsv($handle); // read the row.
     foreach($column_headers as $header) {
-        $result[$header] = array();
+        $headers[] = lcfirst(str_replace(' ', '', $header));
     }
 
     while (($data = fgetcsv($handle)) !== FALSE) {
@@ -20,11 +21,12 @@ if (($handle = fopen("../resource/pshtt.csv", "r")) !== FALSE) {
         if ($term && !(strpos($data[0], $term) || strpos($data[1], $term) || strpos($data[2], $term))) {
             continue;
         }
-        foreach($result as &$column) {
-
-            $column[] = $data[$i++];
+        $row = [];
+        foreach($data as $index => $value) {
+            $value = strtolower($value);
+            $row[$headers[$index]] = ($value == 'false'? false : ($value == 'true'? true : $value));
         }
-
+        $result[] = $row;
     }
     fclose($handle);
 }

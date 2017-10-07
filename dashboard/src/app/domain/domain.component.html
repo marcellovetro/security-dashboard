@@ -1,13 +1,5 @@
 <main>
     <div class="page-title-mobile"><h1>Domain List</h1></div>
-    <div class="chart-container" *ngIf="PlotlyData">
-            <plotlychart
-                    [data]="PlotlyData"
-                    [layout]="PlotlyLayout"
-                    [options]="PlotlyOptions"
-                    [displayRawData]="true">
-            </plotlychart>
-    </div>
     <div class="gallery-tabs">
         <div *ngFor="let domain of domains" class="item">
             <div class="description">
