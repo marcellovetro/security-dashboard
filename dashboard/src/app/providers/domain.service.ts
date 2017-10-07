@@ -14,19 +14,19 @@ export class DomainService {
     }
 
     search(term: any): Observable<Domain[]> {
-        return this.http.get('http://security-dashboard.local/domain.php?term=' + term)
+        return this.http.get('http://localhost/security-dashboard/service/domain.php?term=' + term)
             .map(res => res.json())
             .catch(this.handleError);
     }
 
     getList(): Observable<Domain[]> {
-        return this.http.get('http://security-dashboard.local/domain.php')
+        return this.http.get('http://localhost/security-dashboard/service/domain.php')
             .map(res => res.json())
             .catch(this.handleError);
     }
 
     getCount(search: any): Observable<number> {
-        return this.http.get('http://security-dashboard.local/domain.php')
+        return this.http.get('http://localhost/security-dashboard/service/domain.php?count=1')
             .map(res => res.json())
             .catch(this.handleError);
     }

@@ -7,7 +7,7 @@
  */
 
 $term = strtolower($_REQUEST['term']);
-
+header("Access-Control-Allow-Origin: *");
 $result = array();
 if (($handle = fopen("../resource/pshtt.csv", "r")) !== FALSE) {
     $column_headers = fgetcsv($handle); // read the row.
