@@ -2,6 +2,7 @@ BUILD_DIR=v1
 RELATIVE_PATH=security-dashboard
 
 cd dashboard
+npm install
 ng build
 # Move the build and fix the path
 mv dist ../$BUILD_DIR
