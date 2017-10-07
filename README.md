@@ -2,23 +2,48 @@
 Awesome dashboard that shows the status of security features on .gov.it websites
 based on [`Angular.io`](https://angular.io/)
 
-### Install enviroment
+## Requirements
+
+### Production
+
+- PHP
+- Docker
+
+### Contriburtion and Development
+
+- NodeJS
+- Angular Cli
+
+
+## Install enviroment with Docker
 
 ```bash
-$ git clone https://github.com/18F/domain-scan
-$ cd domain-scan
-# we use docker
-$ docker-compose up
+git clone https://github.com/italia/security-dashboard
+cd security-dashboard
+# Clone domain-scan tool and start its docker version
+git clone https://github.com/18F/domain-scan
+cd domain-scan
+touch .env
+docker-compose up -d 
 ```
 
-To scan, prefix commands with docker-compose run:
+To manually scan the websitest run:
 
 ```bash
-$ docker-compose run scan websites_gov_it.csv --scan=pshtt
-# alternative
-$ ./scan_pshtt.sh
+./cron.sh
 ```
 
-List of gov.it sites `websites_gov_it.csv`
+## Usage and Automation
 
-### Usage
+1. Update list of gov.it sites `websites_gov_it.csv`
+2. Insert script cron.sh into cron service
+
+## Contribute and build update
+
+1. Edit Angular App "./dashboard"
+2. make a build using
+    ```bash
+    cd dashboard
+    ./build.sh
+    ```
+
