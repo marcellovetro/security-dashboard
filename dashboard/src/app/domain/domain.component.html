@@ -7,7 +7,7 @@
             <div class="domain-search-form col-md-6">
                 <form>
                     <div class="app-search">
-                        <input placeholder="Search..." name="search" class="form-control form-control-inline" type="search" [(ngModel)]="term">
+                        <input placeholder="Search..." name="search" class="form-control form-control-inline" type="search" [(ngModel)]="term" (keypress)="searchPressHandler($event)">
                     </div>
                     <div class="app-filters-container">
                         <button type="button" class="btn btn-default btn-xs search-button" (click)="search()">Add Filter</button>

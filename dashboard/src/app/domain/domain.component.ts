@@ -107,4 +107,10 @@ export class DomainComponent implements OnInit {
     public chartHovered(e:any):void {
         console.log(e);
     }
+
+    public searchPressHandler(event) {
+        if (event.keyCode == 13) {
+            this.search();
+        }
+    }
 }
