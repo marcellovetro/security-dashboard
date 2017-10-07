@@ -109,8 +109,6 @@ export class DomainComponent implements OnInit {
     }
 
     public searchPressHandler(event) {
-        if (event.keyCode == 13) {
-            this.search();
-        }
+        this.search();
     }
 }
