@@ -6,6 +6,7 @@ import {PlotlyComponent} from './plotly/plotly.component';
 import {DomainComponent} from './domain/domain.component';
 import {RouterModule} from "@angular/router";
 import {DomainService} from "./providers/domain.service";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {DomainService} from "./providers/domain.service";
   ],
   imports: [
     BrowserModule,
+      HttpModule,
       RouterModule.forRoot([
               {
                   path: '',
