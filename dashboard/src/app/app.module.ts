@@ -7,6 +7,8 @@ import {RouterModule} from "@angular/router";
 import {DomainService} from "./providers/domain.service";
 import {HttpModule} from "@angular/http";
 
+import { ChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +17,7 @@ import {HttpModule} from "@angular/http";
   imports: [
     BrowserModule,
       HttpModule,
+      ChartsModule,
       RouterModule.forRoot([
               {
                   path: '',

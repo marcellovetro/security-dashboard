@@ -1,13 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {DomainService} from '../providers/domain.service';
 import {ActivatedRoute, Router} from '@angular/router';
+
 
 import {Domain} from "../object/domain";
 
 @Component({
     selector: 'domain',
     templateUrl: './domain.component.html',
-    styleUrls: ['../app.component.css']
+    styleUrls: ['../app.component.css'],
+    // include original styles
+    encapsulation: ViewEncapsulation.None
 })
 export class DomainComponent implements OnInit {
 
@@ -15,9 +18,9 @@ export class DomainComponent implements OnInit {
     mode = 'Observable';
     domains: Domain[];
     term: string;
-    public PlotlyLayout: any;
-    public PlotlyData: any;
-    public PlotlyOptions: any;
+    public chartData: any;
+    public chartLabels: any;
+    public chartType:string = 'pie';
 
     route: ActivatedRoute;
 
@@ -26,12 +29,7 @@ export class DomainComponent implements OnInit {
     }
 
     ngOnInit() {
-
-        this.PlotlyLayout = {
-            title: "Domains with HTTPS",
-            height: 500,
-            width: 1200
-        };
+        this.chartLabels = ['With HTTPS', 'Without HTTPS'];
         this.getDomains();
     }
 
@@ -52,35 +50,29 @@ export class DomainComponent implements OnInit {
     setData(data: Domain[]) {
         this.domains = data;
 
-        let values = [
-            0,
-            0
-        ];
-        let labels = [
-            'With HTTPS',
-            'Without HTTPS',
-        ];
-
+        let with_count = 0;
+        let without_count = 0;
         for (let i in data) {
             if (data[i].validHTTPS) {
-                values[0]++;
+                with_count++;
             } else {
-                values[1]++;
+                without_count++;
             }
         }
-        this.PlotlyData = [
-            {
-                name: "Domains with HTTPS",
-                type: 'pie',
-                direction: 'counterclockwise',
-                values:values,
-                labels:labels,
-            }
-        ];
+        this.chartData = [with_count, without_count];
     }
 
     resetSearch() {
         this.term = null;
         this.getDomains();
+    }
+
+    // events
+    public chartClicked(e:any):void {
+        console.log(e);
+    }
+
+    public chartHovered(e:any):void {
+        console.log(e);
     }
 }

@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { DomainService } from './domain.service';
+import { ScanService } from './scan.service';
 
 describe('ScanService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DomainService]
+      providers: [ScanService]
     });
   });
 
-  it('should be created', inject([DomainService], (service: DomainService) => {
+  it('should be created', inject([ScanService], (service: ScanService) => {
     expect(service).toBeTruthy();
   }));
 });

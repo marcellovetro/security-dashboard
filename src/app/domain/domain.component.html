@@ -1,0 +1,17 @@
+<main>
+    <div class="page-title-mobile"><h1>Domain List</h1></div>
+    <div class="gallery-tabs">
+        <div *ngFor="let scan of scans" class="item">
+            <div class="description">
+                <h3 [innerHTML]="scan.domain"></h3>
+                <p><strong>{{scan.canonicalURL}}</strong></p>
+                <p><strong>Https: {{scan.validHTTPS? 'Yes' : 'No'}}</strong></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+
