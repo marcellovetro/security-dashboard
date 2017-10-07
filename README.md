@@ -8,7 +8,8 @@ based on [`Angular.io`](https://angular.io/)
 
 ### Production
 
-- PHP
+- Linux Os / Mac Os
+- Apache or NginX with PHP Interpreter
 - Docker
 
 ### Contriburtion and Development
@@ -29,21 +30,20 @@ based on [`Angular.io`](https://angular.io/)
     ```bash
     install_domain_scan_docker.sh
     ```
-3. Manually scan the websites to create the result data 
+3. Manually scan the websites to create the result data (may take some minutes)
     ```bash
     ./cron.sh
     ```
 4. Open the dashboard in your web browser Ex. http://localhost/security-dashboard/
 5. Automation: 
 5.1. Update list of gov.it sites `websites_gov_it.csv`
-5.2. Insert script cron.sh into cron service
+5.2. To update periodically the data, insert script 'cron.sh' into your cron service once a day 
 
 ## Contribute and build update
 
 1. Edit Angular App "./dashboard"
 2. make a build using
     ```bash
-    cd dashboard
     ./build.sh
     ```
 

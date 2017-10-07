@@ -18,7 +18,7 @@ export class DomainService {
      * @returns {Observable<Domain[]>}
      */
     search(term: any): Observable<Domain[]> {
-        return this.http.get('http://localhost/security-dashboard/service/domain.php?term=' + term)
+        return this.http.get('../service/domain.php?term=' + term)
             .map(res => res.json())
             .catch(this.handleError);
     }

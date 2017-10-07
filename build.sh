@@ -1,6 +1,7 @@
 BUILD_DIR=v1
 RELATIVE_PATH=security-dashboard
 
+rm -rf $BUILD_DIR
 cd dashboard
 npm install
 ng build
