@@ -4,8 +4,8 @@
         <div class="page-title-mobile"><h1>Domains List</h1></div>
 
         <div class="row">
-            <div class="domain-search-form col-md-6">
-                <form>
+            <div class="domain-container col-md-6">
+                <form class="domain-search-form">
                     <div class="app-search">
                         <input placeholder="Search..." name="search" class="form-control form-control-inline" type="search" [(ngModel)]="term" (keypress)="searchPressHandler($event)">
                     </div>
@@ -14,8 +14,32 @@
                         <button type="button" class="btn btn-default btn-xs reset-search-button" (click)="resetSearch()" *ngIf="term">Reset</button>
                     </div>
                 </form>
+                <div class="domain-table">
+                    <table class="table table-striped table-condensed table-bordered">
+                        <thead>
+                        <tr>
+                            <th class="sortable">Domain</th>
+                            <th class="sortable">Canonical URL</th>
+                            <th class="sortable">Valid HTTPS</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let domain of domains" class="item">
+                            <td>
+                                {{domain.domain}}
+                            </td>
+                            <td>
+                                {{domain.canonicalURL}}
+                            </td>
+                            <td>
+                                {{domain.validHTTPS? 'Yes' : 'No'}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="chart-container col-md-6" style="display: block" *ngIf="chartData">
+            <div class="chart-container pull-right col-md-6" style="display: block" *ngIf="chartData">
                 <canvas baseChart
                         [data]="chartData"
                         [labels]="chartLabels"
@@ -23,30 +47,6 @@
                         (chartHover)="chartHovered($event)"
                         (chartClick)="chartClicked($event)"></canvas>
             </div>
-        </div>
-        <div class="domain-table">
-            <table class="table table-striped table-condensed table-bordered">
-                <thead>
-                <tr>
-                    <th class="sortable">Domain</th>
-                    <th class="sortable">Canonical URL</th>
-                    <th class="sortable">Valid HTTPS</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let domain of domains" class="item">
-                    <td>
-                        {{domain.domain}}
-                    </td>
-                    <td>
-                        {{domain.canonicalURL}}
-                    </td>
-                    <td>
-                        {{domain.validHTTPS? 'Yes' : 'No'}}
-                    </td>
-                </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 </main>
