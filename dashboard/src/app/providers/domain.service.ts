@@ -9,16 +9,24 @@ import {Domain} from '../object/domain';
 
 @Injectable()
 export class DomainService {
-
     constructor(private http: Http) {
     }
 
+    /**
+     * metodo per lanciare la ricerca
+     * @param term
+     * @returns {Observable<Domain[]>}
+     */
     search(term: any): Observable<Domain[]> {
         return this.http.get('http://localhost/security-dashboard/service/domain.php?term=' + term)
             .map(res => res.json())
             .catch(this.handleError);
     }
 
+    /**
+     * metodo per ottenere la lista completa dei domini
+     * @returns {Observable<Domain[]>}
+     */
     getList(): Observable<Domain[]> {
         return this.http.get('http://localhost/security-dashboard/service/domain.php')
             .map(res => res.json())

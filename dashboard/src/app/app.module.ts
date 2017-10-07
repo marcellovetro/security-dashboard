@@ -8,6 +8,7 @@ import {DomainService} from "./providers/domain.service";
 import {HttpModule} from "@angular/http";
 
 import { ChartsModule } from 'ng2-charts';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ChartsModule } from 'ng2-charts';
     BrowserModule,
       HttpModule,
       ChartsModule,
+      FormsModule,
       RouterModule.forRoot([
               {
                   path: '',
