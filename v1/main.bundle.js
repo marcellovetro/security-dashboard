@@ -277,7 +277,18 @@ var DomainComponent = (function () {
         console.log(e);
     };
     DomainComponent.prototype.searchPressHandler = function (event) {
-        this.search();
+        if (this.searchTimeOut) {
+            clearTimeout(this.searchTimeOut);
+        }
+        if (event.keyCode == 13) {
+            this.search();
+        }
+        else {
+            var that_1 = this;
+            this.searchTimeOut = setTimeout(function () {
+                that_1.search();
+            }, 100);
+        }
     };
     return DomainComponent;
 }());

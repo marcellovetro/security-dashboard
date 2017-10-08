@@ -28,6 +28,7 @@ export class DomainComponent implements OnInit {
     public chartData: any;
     public chartLabels: any;
     public chartType:string = 'pie';
+    private searchTimeOut:any;
 
     route: ActivatedRoute;
 
@@ -109,6 +110,16 @@ export class DomainComponent implements OnInit {
     }
 
     public searchPressHandler(event) {
-        this.search();
+        if (this.searchTimeOut) {
+            clearTimeout(this.searchTimeOut);
+        }
+        if (event.keyCode == 13){
+            this.search();
+        } else {
+            let that = this;
+            this.searchTimeOut = setTimeout(function(){
+                that.search();
+            },100);
+        }
     }
 }
