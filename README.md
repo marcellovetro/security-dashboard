@@ -49,7 +49,7 @@ based on [`Angular.io`](https://angular.io/)
 
 # Credits
 
-Powered by the developer team of [`Olomedia`](https://www.olomedia.com)
+Powered by the developer team of [`Olomedia`](http://www.olomedia.com)
 * Marcello Vetro
 * Fabio Pileri
 * Emilio Bellomo
