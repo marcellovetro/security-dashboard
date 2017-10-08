@@ -11,7 +11,15 @@
     }
 }
 
+.show-in-responsive {
+    display: none;
+}
+
 @media only screen and (max-width: 720px) {
+
+    .show-in-responsive {
+        display: inline;
+    }
 
     /* Force table to not be like tables anymore */
     .table-responsive table,

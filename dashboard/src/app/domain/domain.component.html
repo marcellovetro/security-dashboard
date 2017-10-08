@@ -1,5 +1,4 @@
 <script src="node_modules/chart.js/src/chart.js"></script>
-<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <main>
     <div class="navbar navbar-default">
         <div class="container-fluid">
@@ -55,7 +54,7 @@
                                 {{domain.canonicalURL}}
                             </td>
                             <td>
-                                {{domain.validHTTPS? 'Yes' : 'No'}}
+                                <span class="show-in-responsive">HTTPS:</span> {{domain.validHTTPS? 'Yes' : 'No'}}
                             </td>
                         </tr>
                         </tbody>
