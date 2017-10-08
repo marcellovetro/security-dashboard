@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { DomainService } from './domain.service';
 
-describe('ScanService', () => {
+describe('DomainService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [DomainService]
